@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //一个数组去重的简单实现
+        var arr = ['abc', 'abcd', 'sss', '2', 'd', 't', '2', 'ss', 'f', '22', 'd'];
+        //定义一个新的数组
+        var s = [];
+        //遍历数组
+        for (var i = 0; i < arr.length; i++) {
+            if (s.indexOf(arr[i]) == -1) { //判断在s数组中是否存在，不存在则push到s数组中
+                s.push(arr[i]);
+            }
+        }
+        console.log(s);
+        //输出结果：["abc", "abcd", "sss", "2", "d", "t", "ss", "f", "22"]
+
+
+        //-----------------------------------------------------------
+        //sort
+        var array = [10, 2, 12, 4, 5, 10, 78, 5, 5, 55, 96, 2];
+        console.log(array); /*原数组*/
+        console.log(array.sort()); /*直接排序,没有效果*/
+
+        //使用sort()数字排序，你必须通过一个函数作为参数来调用。
+
+        function compare(a, b) {
+            return b - a;
+        }
+        console.log(array.sort(compare)); /*调用函数排序*/
+        //    [96, 78, 55, 12, 10, 10, 5, 5, 5, 4, 2, 2]s
+    </script>
+</body>
+
+</html>

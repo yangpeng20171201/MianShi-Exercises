@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery实现水平和垂直居中</title>
+    <!-- 
+        　原理：jQuery实现水平和垂直居中的原理就是通过jQuery设置div等块级元素的CSS，
+        获取div等块级元素的左、上的边距偏移量，边距偏移量的算法就是用页面窗口 的宽度减去该div等块级元素的宽度，
+        得到的值再除以2即左偏移量，右偏移量算法相同。注意div等块级元素的CSS设置要在resize()方法中完成，
+        就是每次改变窗口大 小时，都要执行设置div等块级元素的CSS。
+     -->
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        .myblock {
+            width: 200px;
+            height: 200px;
+            background-color: royalblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="myblock">
+
+    </div>
+    <script>
+        $(function () {
+
+            $(window).resize();
+
+        });
+        $(window).resize(function () {
+            $(".myblock").css({
+                position: "absolute",
+                left: ($(window).width() - $(".myblock").outerWidth()) / 2 ,
+                top: ($(window).height() - $(".myblock").outerHeight()) / 2
+            });
+        });
+    </script>
+</body>
+
+</html>
